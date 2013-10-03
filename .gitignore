@@ -1,3 +1,4 @@
 # Ignore record.txt:
 record.txt
 *.swap
+*.swp
