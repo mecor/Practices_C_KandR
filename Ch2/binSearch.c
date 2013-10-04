@@ -39,13 +39,12 @@ int * randArr(int sz, int step)
 {
 	int *v = malloc(sz*sizeof(int));
 	int i = 0;
-	/*for (i = 0; i < sz; i++){
-		e = rand() % 50 + 1;
-		if (i > 0 && e < *(v + i - 1))
-			*(v + i) = *(v + i - 1) + e;
-		else
-			*(v + i) = e;
-	}*/
+	/* principle:
+	    *(v+0) *(v+1)   *(v+2) ...
+	       v      v        v
+       +------+--------+--------+-------
+	   0   1*step   2*step   3*step
+	 */
 	for (i = 0; i < sz; i++){
 		*(v + i) = rand() % (step*(i + 1)) + 1;
 		if (i > 0 && (*(v + i) < *(v + i - 1)))
